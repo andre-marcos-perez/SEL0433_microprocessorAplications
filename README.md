@@ -1,4 +1,4 @@
-# sel433_microprocessorAplications
+# SEL0433 Aplications of Microprocessors I
 
 @ Author
 
