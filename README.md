@@ -14,6 +14,11 @@
   * http://www.eesc.usp.br/portaleesc/en/
   * http://www5.usp.br/english/?lang=en
 
+@ IDE
+
+ * MCU 8051
+ * https://sourceforge.net/projects/mcu8051ide/
+ 
 @ License
 
   * MIT License
