@@ -5,7 +5,7 @@
 ; @DISCIPLINE
 ;  Name: SEL0433 | Applications of Microprocessors I
 ;  Professor: Evandro Luis Linhari Rodrigues
-;  Semester: 2017\01
+;  Academic Period: 2017\01
 ;------------------------------------------------------------------------------
 ; @DEVELOPMENT
 ;  MCU:	Intel 8052
