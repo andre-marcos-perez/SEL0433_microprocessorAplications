@@ -8,14 +8,14 @@
 ;  Semester: 2017\01
 ;------------------------------------------------------------------------------
 ; @DEVELOPMENT
-;  MCU:	Atmel® AT89S52
+;  MCU:	Intel 8052
 ;  IDE: MCU 8051 v1.5.7
 ;  Compiler: IDE native assembler
 ;------------------------------------------------------------------------------
 ; @WARRANTY
 ;  Copyright (c) 2017 Andre Marcos Perez
 ;  The software is provided by "as is", without warranty of any kind, express or
-;  implied, including but not limited to the warranties of merchantability,
+;  implied, including but not limited to the warranties of merchantability, 8051
 ;  fitness for a particular purpose and noninfringement. In no event shall the
 ;  authors or copyright holders be liable for any claim, damages or other
 ;  liability, whether in an action of contract, tort or otherwise, arising from,
