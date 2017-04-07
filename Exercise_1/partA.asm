@@ -52,20 +52,20 @@
 CHECK_SWITCH_1:
 	JNB	SWITCH_1,CHECK_SWITCH_2
 	CPL	LED_1
-	ACALL	DELAY_1_SECOND
+	LCALL	DELAY_1_SECOND
 	SJMP	CHECK_SWITCH_1
 CHECK_SWITCH_2:
 	JNB	SWITCH_2,CHECK_SWITCH_3
 	CPL	LED_2
-	ACALL	DELAY_1_SECOND
+	LCALL	DELAY_1_SECOND
 	SJMP	CHECK_SWITCH_2
 CHECK_SWITCH_3:
 	JNB	SWITCH_3,CHECK_SWITCH_1
 	CPL	LED_1
-	ACALL	DELAY_1_SECOND
+	LCALL	DELAY_1_SECOND
 	CPL	LED_1
 	CPL	LED_3
-	ACALL	DELAY_1_SECOND
+	LCALL	DELAY_1_SECOND
 	CPL	LED_3
 	SJMP	CHECK_SWITCH_3
 ;*******************************************************************************
@@ -76,10 +76,10 @@ CHECK_SWITCH_3:
 ;------------------------------------------------------------------------------
 ; @Description
 ;  Generates a delay of approximately 1 second (999ms and 245μs) by decrementing
-;  three registers with defined values. These values were calculated considering
-;  a 12Mhz oscillator by the following equation: delay(μs)=(((2R5)+4))R6+3))R7+3
-;  The microntroller does not perfom any other operation while counting unless
-;  interrupted by a interruption service routine.
+;  three registers with defined values plus the time to switch context. These
+;  values were calculated considering a 12Mhz crystal by the following equation:
+;  delay(μs)=(((2R5)+4))R6+3))R7+3. The microntroller does not perfom any other
+;  operation while counting unless interrupted by a interruption service routine.
 ;------------------------------------------------------------------------------
 ; @Precondition
 ;  R5: Must be free to be used
