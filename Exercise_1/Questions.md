@@ -49,3 +49,5 @@ Escrever um programa em Assembly do 8051 que controle uma esteira transportadora
 3. Inverter o sentido do motor DC (Anti-horário).
 4. Através de um mecanismo na esteira, uma nova interrupção é enviada pelo mesmo pino Int0 quando a esteira estiver reposicionada para aceitar outro produto.
 5. Parar a esteira por 10 segundos e re-iniciar o processo.
+
+![Alt text](/hardware.png "Hardware")
