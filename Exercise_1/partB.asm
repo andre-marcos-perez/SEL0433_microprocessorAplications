@@ -38,7 +38,6 @@
 ;------------------------------------------------------------------------------
 	MOTOR_CONTROL_0	BIT	P2.1
 	MOTOR_CONTROL_1	BIT	P2.7
-	SENSOR		BIT	P3.2
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -75,16 +74,14 @@
 ;  Main code
 ;------------------------------------------------------------------------------
 	ORG	0
-MAIN:	MOTOR_TURN_CLOCKWISE
-	JNB	SENSOR,$
-	MOTOR_STOP
-	LCALL	DELAY_5_SECONDS
-	MOTOR_TURN_COUNTERCLOCKWISE
-	JNB	SENSOR,$
-	MOTOR_STOP
-	LCALL	DELAY_5_SECONDS
-	LCALL	DELAY_5_SECONDS
-	SJMP	MAIN
+	LJMP	MAIN
+	ORG 	03H
+	LJMP	ISR_INT0_SENSOR
+MAIN:	SETB	IT0
+	SETB	EX0
+	SETB	EA
+	MOTOR_TURN_CLOCKWISE
+	SJMP	$
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -95,7 +92,7 @@ MAIN:	MOTOR_TURN_CLOCKWISE
 ;  Generates a delay of approximately 5 seconds (5s and 159μs) by decrementing
 ;  three registers with defined values plus the time to switch context. These
 ;  values were calculated considering a 12Mhz crystal by the following equation:
-;  delay(μs)=(((2R5)+4))R6+3))R7+3. The μController does not perfom any other
+;  delay(μs)=(((2R5)+4))R6+3))R7+3. The microntroller does not perfom any other
 ;  operation while counting unless interrupted by a interruption service routine.
 ;------------------------------------------------------------------------------
 ; @Precondition
@@ -118,5 +115,38 @@ LOOP_0:	MOV	R7,#000H
 	DJNZ	R6,LOOP_0
 	DJNZ	R5,LOOP_1
 	RET
+;*******************************************************************************
+
+;*******************************************************************************
+; @INTERRUPTION
+;  ISR_INT0_SENSOR
+;------------------------------------------------------------------------------
+; @Description
+;  Stops the motor, calls and 5 seconds delay. If the sensor isr is triggerd by
+;  a product, turns the motor counterclockwise, else calls another 5 seconds
+;  delay and turns the motor clockwise. The if-else block is controlled by the
+;  general flag F0 from the special function register PSW.
+;------------------------------------------------------------------------------
+; @Precondition
+;  F0: Must be free to be used
+;------------------------------------------------------------------------------
+; @Param
+;  Void
+;------------------------------------------------------------------------------
+; @Returns
+;  Void
+;------------------------------------------------------------------------------
+ISR_INT0_SENSOR:
+	MOTOR_STOP
+	LCALL	DELAY_5_SECONDS
+	JNB	F0,COUNTERCLOCKWISE_DIRECTION
+	LCALL	DELAY_5_SECONDS
+	MOTOR_TURN_CLOCKWISE
+	CLR	F0
+	RETI
+COUNTERCLOCKWISE_DIRECTION:
+	MOTOR_TURN_COUNTERCLOCKWISE
+	SETB	F0
+	RETI
 ;*******************************************************************************
 	END
