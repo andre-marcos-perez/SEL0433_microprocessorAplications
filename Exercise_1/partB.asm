@@ -95,7 +95,7 @@ MAIN:	MOTOR_TURN_CLOCKWISE
 ;  Generates a delay of approximately 5 seconds (5s and 159μs) by decrementing
 ;  three registers with defined values plus the time to switch context. These
 ;  values were calculated considering a 12Mhz crystal by the following equation:
-;  delay(μs)=(((2R5)+4))R6+3))R7+3. The microntroller does not perfom any other
+;  delay(μs)=(((2R5)+4))R6+3))R7+3. The μController does not perfom any other
 ;  operation while counting unless interrupted by a interruption service routine.
 ;------------------------------------------------------------------------------
 ; @Precondition
