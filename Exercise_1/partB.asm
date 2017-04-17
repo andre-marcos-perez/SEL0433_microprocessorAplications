@@ -122,10 +122,10 @@ LOOP_0:	MOV	R7,#000H
 ;  ISR_INT0_SENSOR
 ;------------------------------------------------------------------------------
 ; @Description
-;  Stops the motor, calls and 5 seconds delay. If the sensor isr is triggerd by
-;  a product, turns the motor counterclockwise, else calls another 5 seconds
-;  delay and turns the motor clockwise. The if-else block is controlled by the
-;  general flag F0 from the special function register PSW.
+;  Stops the motor and calls a 5 seconds delay. If the sensor isr is triggerd
+;  by a product, turns the motor counterclockwise, else calls another 5 seconds
+;  delay and turns the motor clockwise. The if-else decision block is controlled
+;  by the general flag F0 from the special function register PSW.
 ;------------------------------------------------------------------------------
 ; @Precondition
 ;  F0: Must be free to be used
