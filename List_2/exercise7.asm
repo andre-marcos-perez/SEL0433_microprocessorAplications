@@ -42,21 +42,6 @@
 ;*******************************************************************************
 
 ;*******************************************************************************
-; @VARIABLE
-;  Code's variables
-;------------------------------------------------------------------------------
-;*******************************************************************************
-
-;*******************************************************************************
-; @MACROS
-;  Code's macros
-;------------------------------------------------------------------------------
-; @Description
-;  Macro's description
-;------------------------------------------------------------------------------
-;*******************************************************************************
-
-;*******************************************************************************
 ; @CODE
 ;  Main code
 ;------------------------------------------------------------------------------
@@ -80,11 +65,11 @@ COPY:	MOV	A,@R0
 ;  QUICK_SORT
 ;------------------------------------------------------------------------------
 ; @Description
-;  Runs a quicksort algorithm to sort in-place an array stored on internal ram,
-;  between the addresses pointed by R0 and R1, respectively. Since the worst case
-;  scenario is unlikely to happen, the complexity of the algorithm is assumed to
-;  be of its average case scenario: O(n log(n)). For simplicity, takes the last
-;  element of the partition as pivot.
+;  Runs a quicksort algorithm to sort in-place an array stored on internal ram
+;  in ascending order, between the addresses pointed by R0 and R1, respectively.
+;  Since the worst case scenario is unlikely to happen, the complexity of the
+;  algorithm is assumed to be of its average case scenario: O(n log(n)). For
+;  simplicity, takes the last element of the partition as pivot.
 ;------------------------------------------------------------------------------
 ; @Precondition
 ;  R0: Must be free to be used
