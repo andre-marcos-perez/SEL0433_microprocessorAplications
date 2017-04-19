@@ -69,11 +69,9 @@ COPY:	MOV	A,@R0
 ;  in ascending order, between the addresses pointed by R0 and R1, respectively.
 ;  Since the worst case scenario is unlikely to happen, the complexity of the
 ;  algorithm is assumed to be of its average case scenario: O(n log(n)). For
-;  simplicity, takes the last element of the partition as pivot.
+;  simplicity, it takes the last element of the partition as pivot.
 ;------------------------------------------------------------------------------
 ; @Precondition
-;  R0: Must be free to be used
-;  R1: Must be free to be used
 ;  R5: Must be free to be used
 ;  R6: Must be free to be used
 ;  R7: Must be free to be used
