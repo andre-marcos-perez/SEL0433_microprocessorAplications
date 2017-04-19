@@ -78,8 +78,8 @@ COPY:	MOV	A,@R0
 ;  SP: Must be moved to the internal ram address stored on R1 + 1
 ;------------------------------------------------------------------------------
 ; @Param
-;  R0: Pointer for the first element of the sequence stored on internal ram
-;  R1: Pointer for the last element of the sequence stored on internal ram
+;  R0: Pointer for the first element of the array stored on internal ram
+;  R1: Pointer for the last element of the array stored on internal ram
 ;------------------------------------------------------------------------------
 ; @Returns
 ;  Void
