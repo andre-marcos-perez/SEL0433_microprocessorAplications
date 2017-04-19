@@ -63,15 +63,21 @@ COPY:	MOV	A,@R0
 ;------------------------------------------------------------------------------
 ; @Description
 ;  Runs a bubblesort algorithm to sort in-place an array stored on internal ram
-;  in ascending order, between the addresses pointed by R0 and R1, respectively.
-;  Its average and worst case scenario complexity is O(n^2).
+;  in ascending order. Its average and worst case scenario complexity is O(n^2).
 ;------------------------------------------------------------------------------
 ; @Precondition
 ;  F0: Must be free to be used
+;  R0: Must be free to be used
+;  R1: Must be free to be used
+;  INTERNAL_RAM_ADDRESS_TABLE_START: The first element address of the array 
+; 				     stored on internal ram must be defined on
+;				     this constant
+;  INTERNAL_RAM_ADDRESS_TABLE_END:   The last element address of the array 
+; 				     stored on internal ram must be defined on
+;				     this constant
 ;------------------------------------------------------------------------------
 ; @Param
-;  R0: Pointer for the first element of the array stored on internal ram
-;  R1: Pointer for the last element of the array stored on internal ram
+;  Void
 ;------------------------------------------------------------------------------
 ; @Returns
 ;  Void
