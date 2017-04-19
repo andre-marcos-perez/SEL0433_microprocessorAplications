@@ -37,7 +37,7 @@
 ;  Code's constants
 ;------------------------------------------------------------------------------
 	INTERNAL_RAM_ADDRESS_TABLE_START	EQU	020H
-	INTERNAL_RAM_ADDRESS_TABLE_END		EQU	02FH
+	INTERNAL_RAM_ADDRESS_TABLE_END		EQU	07FH
 	INTERNAL_RAM_ADDRESS_SORTED_TABLE_START	EQU	080H
 ;*******************************************************************************
 
