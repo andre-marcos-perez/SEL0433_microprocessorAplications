@@ -14,10 +14,13 @@
   * http://www.eesc.usp.br/portaleesc/en/
   * http://www5.usp.br/english/?lang=en
 
-@ IDE
+@ Softwares
 
- * MCU 8051
+ * MCU 8051 IDE
  * https://sourceforge.net/projects/mcu8051ide/
+ 
+ * SDCC
+ * https://sourceforge.net/projects/sdcc/files/
  
 @ License
 
