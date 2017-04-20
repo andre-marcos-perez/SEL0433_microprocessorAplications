@@ -23,7 +23,7 @@
 ;  software.
 ;------------------------------------------------------------------------------
 ; @EXERCISE
-;  Ex. : # 2
+;  Ex. : # 1
 ;  Part: # B
 ;------------------------------------------------------------------------------
 ; @AUTHOR
@@ -103,16 +103,14 @@ MAIN:	MOV	TMOD,#01H
 ;  DELAY_5_SECONDS
 ;------------------------------------------------------------------------------
 ; @Description
-;  Generates a delay of approximately 5 seconds (5s and 159μs) by decrementing
-;  three registers with defined values plus the time to switch context. These
-;  values were calculated considering a 12Mhz crystal by the following equation:
-;  delay(μs)=(((2R5)+4))R6+3))R7+3. The microntroller does not perfom any other
-;  operation while counting unless interrupted by a interruption service routine.
+;  Generates a delay of approximately 5 second by waiting a register to have a
+;  value of 0x64 or 100. The routine starts the timer 0, which is configurated to
+;  overflow at a rate of 20Hz and to increment the aforementioned register, thus
+;  making the desired delay (100 times 20Hz is equal to 5 second). Stops the timer
+;  before returning.
 ;------------------------------------------------------------------------------
 ; @Precondition
-;  R5: Must be free to be used
-;  R6: Must be free to be used
-;  R7: Must be free to be used
+;  R0: Must be free to be used
 ;------------------------------------------------------------------------------
 ; @Param
 ;  Void
@@ -133,14 +131,13 @@ DELAY_5_SECONDS:
 ;  ISR_INT0_SENSOR
 ;------------------------------------------------------------------------------
 ; @Description
-;  Generates a delay of approximately 5 second by waiting a register to have a
-;  value of 0x64 or 100. The routine starts the timer 0, which is configurated to
-;  overflow at a rate of 20Hz and to increment the aforementioned register, thus
-;  making the desired delay (100 times 20Hz is equal to 5 second). Stops the timer
-;  before returning.
+;  Stops the motor and calls a 5 seconds delay. If the sensor isr is triggerd
+;  by a product, turns the motor counterclockwise, else calls another 5 seconds
+;  delay and turns the motor clockwise. The if-else decision block is controlled
+;  by the general flag F0 from the special function register PSW.
 ;------------------------------------------------------------------------------
 ; @Precondition
-;  R0: Must be free to be used
+;  F0: Must be free to be used
 ;------------------------------------------------------------------------------
 ; @Param
 ;  Void
