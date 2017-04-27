@@ -163,24 +163,24 @@ Desenvolver um programa em Assembly do 8051 que ordene de maneira crescente uma 
 Uma rotina recursiva é uma rotina que resolve um problema chamando a si mesma até que a solução seja encontrada. Para que esta rotina não chame a si mesma infinitamente, define-se uma condição de parada ou condição básica. Portanto, uma rotina recursiva é composta por dois casos distintos: um de parada e um caso recursivo. Funções recursivas utilizam intensamente a pilha e consequentemente seu ponteiro, o stack pointer (SP). Observe o código abaixo.
 
 ```assembly
-    org 0
-    mov r7, #05h
-    lcall recursion
-    sjmp $
-recursion:
-    cjne r7, #00h, continue
-    ret
-continue:
-    dec r7
-    lcall recursion
-    ret
-    end
+    ORG     0
+    MOV     R7, #05H
+    LCALL   RECURSION
+    SJMP    $
+RECURSION:
+    CJNE    R7, #00h, CONTINUE
+    RET
+CONTINUE:
+    DEC     R7
+    LCALL   RECURSION
+    RET
+    END
 ```
 
-a. Compile o código acima e simule-o acompanhando o comportamento da pilha na memória de dados interna e do registrador SP. Descreva o comportamento de ambos.
-b. Qual é o caso de parada e o caso recursivo do código?
-c. Qual o valor que R7 deve assumir para que ocorra um <i>stack overflow</i>?
-d. Modifique o código para que este seja capaz de calcular a potência de um número de 1 byte. Envie o resultado para a porta P1 e salve um eventual carry no bit P2.0.
+1. Compile o código acima e simule-o acompanhando o comportamento da pilha na memória de dados interna e do registrador SP. Descreva o comportamento de ambos.
+2. Qual é o caso de parada e o caso recursivo do código?
+3. Qual o valor que R7 deve assumir para que ocorra um <i>stack overflow</i>?
+4. Modifique o código para que este seja capaz de calcular a potência de um número de 1 byte. Envie o resultado para a porta P1 e salve um eventual carry no bit P2.0.
 
 ## Exercise 7
 
@@ -239,4 +239,4 @@ Escrever um programa em Assembly para o controle do dispositivo de teste térmic
 
 ## Hardware - Exercise 7
 
-![hardware](./hardware.png "Hardware")
+![hardware](./List_2_Exercise_7_hardware.png "Hardware")
