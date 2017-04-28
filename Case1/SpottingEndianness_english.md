@@ -8,7 +8,7 @@ Andrew knew what <i>endianness</i> was, but he didn't know that a <i>little endi
 
 ## Part A
 
-In assembly, make this function for the processor used on this class.
+In assembly, make this function for the processor used on this class. Return 0 on the F0 flag if it is big endian and 1 if it is little endian.
 
 ## Part B
 
