@@ -57,9 +57,9 @@
 ;  endianness on the F0 flag stored on the sfr PSW.
 ;------------------------------------------------------------------------------
 ; @Precondition
-; INTERNAL_RAM_DPTR_MSB_ADDRESS: Assuming big-endianness, the MSB of the DPTR
-;				 SFR stored on internal ram must be defined on
-;				 this constant
+; INTERNAL_RAM_DPTR_MSB_ADDRESS: Assuming big-endianness, the address of the MSB
+;				 of DPTR SFR stored on internal ram must be defined
+;				 on this constant
 ;------------------------------------------------------------------------------
 ; @Param
 ;  Void
