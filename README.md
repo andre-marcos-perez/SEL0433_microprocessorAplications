@@ -14,6 +14,11 @@
   * http://www.eesc.usp.br/portaleesc/en/
   * http://www5.usp.br/english/?lang=en
 
+@ Hardware
+
+ * Intel 8051 family
+ * https://en.wikipedia.org/wiki/Intel_MCS-51
+
 @ Softwares
 
  * MCU 8051 IDE
