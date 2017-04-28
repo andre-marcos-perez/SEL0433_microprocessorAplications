@@ -59,8 +59,8 @@
 ;  between 0000H and 00FFH.
 ;------------------------------------------------------------------------------
 ; @Precondition
-; INTERNAL_RAM_SP_ADDRESS: The SP SFR stored on internal ram must be defined on
-;		   	   this constant
+; INTERNAL_RAM_SP_ADDRESS: The address of the SP SFR stored on internal ram must 
+;   			   be defined on this constant
 ;------------------------------------------------------------------------------
 ; @Param
 ;  Void
