@@ -37,16 +37,16 @@
 ;  Main code
 ;------------------------------------------------------------------------------
 	ORG	0
-	MOV	27H,#0H
+	MOV	2FH,#0H
 	MOV	R0,#08H
 LOOP:	JNB	20H.0,ROTATE
-	CPL	27H.7
+	CPL	2FH.7
 ROTATE:	MOV	A,20H
 	RL	A
 	MOV	20H,A
-	MOV	A,27H
+	MOV	A,2FH
 	RR	A
-	MOV	27H,A
+	MOV	2FH,A
 	DJNZ	R0,LOOP
 	SJMP	$
 ;*******************************************************************************
