@@ -35,6 +35,6 @@ LOOP:	CPL	P2.1
 	END
 ```
 1. Quais são os endereços absolutos equivalentes aos <i>labels</i> INIT e VOLTA?
-2. Qual será o conteudo em hexadecimal do endereço 0108h da ram externa após a execução do programa?
-3. Qual será o conteudo em hexadecimal do registrador R1 após a execução do programa?
+2. Qual será o conteúdo em hexadecimal do endereço 0108h da ram externa após a execução do programa?
+3. Qual será o conteúdo em hexadecimal do registrador R1 após a execução do programa?
 4. Se um led estiver ligado na porta P2.1, quantas vezes ele ascenderá durante a execução do programa?
