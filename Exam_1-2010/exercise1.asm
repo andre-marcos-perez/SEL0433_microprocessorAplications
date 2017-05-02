@@ -80,9 +80,8 @@ MAIN:	SETB	EX0
 	SETB	ES
 	SETB	EA
 	MOV	R7,#100D
-	MOV	R6,#10D
-LOOP:	CJNE	R6,#00H,$
-	MOV	R6,#10D
+LOOP:	MOV	R6,#10D
+	CJNE	R6,#00H,$
 	SETB	RI
 	SJMP	LOOP
 ;*******************************************************************************
