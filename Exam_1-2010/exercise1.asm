@@ -36,7 +36,7 @@
 ; @CONSTANT
 ;  Code's constants
 ;------------------------------------------------------------------------------
-	CONSTANT_TIMER_0VERFLOW_50MS	EQU	(50000 * 11.0592 / 12)
+	CONSTANT_TIMER_0VERFLOW_5mS	EQU	(5000 * 11.0592 / 12)
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -67,8 +67,8 @@
 MAIN:	SETB	EX0
 	SETB	PX0
 	MOV	TMOD,#21H
-	MOV	TH0,#(0FFH - HIGH CONSTANT_TIMER_0VERFLOW_50MS)
-	MOV	TL0,#(0FFH - LOW  CONSTANT_TIMER_0VERFLOW_50MS)
+	MOV	TH0,#(0FFH - HIGH CONSTANT_TIMER_0VERFLOW_5mS)
+	MOV	TL0,#(0FFH - LOW  CONSTANT_TIMER_0VERFLOW_5mS)
 	SETB	TR0
 	SETB	ET0
 	SETB	PT0
@@ -80,8 +80,9 @@ MAIN:	SETB	EX0
 	SETB	ES
 	SETB	EA
 	MOV	R7,#100D
-LOOP:	CJNE	R7,#00H,$
-	MOV	R7,#100D
+	MOV	R6,#10D
+LOOP:	CJNE	R6,#00H,$
+	MOV	R6,#10D
 	SETB	RI
 	SJMP	LOOP
 ;*******************************************************************************
@@ -114,6 +115,7 @@ ISR_INT0:
 ;  Interruption service routine for timer 0 interruption.
 ;------------------------------------------------------------------------------
 ; @Precondition
+;  R6: Must be free to be used.
 ;  R7: Must be free to be used.
 ;  CONSTANT_TIMER_0VERFLOW_50MS: The number of times the timer 0 on mode 1 must
 ;				 count to generate a overflow of 50 ms must be
@@ -126,13 +128,15 @@ ISR_INT0:
 ;  Void
 ;------------------------------------------------------------------------------
 ISR_TIMER0:
-	MOV	TH0,#(0FFH - HIGH CONSTANT_TIMER_0VERFLOW_50MS)
-	MOV	TL0,#(0FFH - LOW  CONSTANT_TIMER_0VERFLOW_50MS)
+	MOV	TH0,#(0FFH - HIGH CONSTANT_TIMER_0VERFLOW_5mS)
+	MOV	TL0,#(0FFH - LOW  CONSTANT_TIMER_0VERFLOW_5mS)
 	MOV	A,7FH
 	MOV	DPTR,#5200H
 	MOVX	@DPTR,A
-	DEC	R7
-	RET
+	DJNZ	R7,RETURN
+	MOV	R7,#100D
+	DEC	R6
+RETURN:	RET
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -169,12 +173,13 @@ ISR_INT1:
 ;  Void
 ;------------------------------------------------------------------------------
 ISR_SERIAL:
-	CLR	RI
+	JNB	TI,SEND
+	CLR	TI
+	RET
+SEND:	CLR	RI
 	MOV	DPTR,#5200H
 	MOVX	A,@DPTR
 	MOV	SBUF,A
-	JNB	TI,$
-	CLR	TI
 	RET
 ;*******************************************************************************
 	END
