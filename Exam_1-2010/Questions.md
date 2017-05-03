@@ -6,7 +6,7 @@
 Um sistema baseado no Microcontrolador 8051 utiliza as duas interrupções externas, a interrupção da comunicação serial e a interrupção gerada pela timer/contador 0. Escrever um programa em Assembly com as características abaixo.
 1. A interrupção externa 0, de alta prioridade, deve trocar o que está na porta P1 com o que está contido na posição de ram externa 5000h.
 2. A interrupção externa 1, com baixa prioridade, deve transferir o que está armazenado no endereço 5000h da ram externa para o endereço 7Fh da ram interna.
-3. A interrupção do timer/contador 0 (a cada 50ms), de alta prioridade, deve executar uma rotina que copie o conteudo do endereço 7Fh da ram interna para o endereço 5200h da ram externa.
+3. A interrupção do timer/contador 0 (a cada 5ms), de alta prioridade, deve executar uma rotina que copie o conteudo do endereço 7Fh da ram interna para o endereço 5200h da ram externa.
 4. A interrupção serial, de baixa prioridade, deve enviar a cada 5 segundos aproximadamente o conteudo do endereço 5200h pela interface serial RS232 no formato 9600/8-N-1.
 
 O programa deve ficar em loop infinito executando o algoritmo acima. Considerar um cristal de 11.0592 MHz.
