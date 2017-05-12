@@ -92,22 +92,15 @@ void main(void){
 /* serialC.c#isr_serial */
 void isr_serial(void) __interrupt(4){
 
-	if(RI){
+	RI = FALSE;
+	if(SBUF == 'P'){
 
-		RI = FALSE;
-		if(SBUF == 'P'){
+		unsigned char index;
+		for(index=0 ; *(STR + index) != '$' ; index++){
 
-			unsigned char index;
-			for(index=0 ; *(STR + index) != '$' ; index++){
-
-				SBUF = *(STR + index);
-				while(!TI);
-				TI = FALSE;
-			}
+			SBUF = *(STR + index);
+			while(!TI);
+			TI = FALSE;
 		}
-	}
-	else{
-
-		TI = FALSE;
 	}
 }
