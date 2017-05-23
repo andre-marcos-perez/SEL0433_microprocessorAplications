@@ -85,8 +85,10 @@
 	LJMP	MAIN
 	ORG 	03H
 	LJMP	ISR_INT0_SENSOR
+	RETI
 	ORG	0BH
 	LJMP	ISR_TIMER0
+	RETI
 MAIN:	MOV	TMOD,#01H
 	LOAD_TIMER0_20HZ
 	SETB	ET0
@@ -152,11 +154,11 @@ ISR_INT0_SENSOR:
 	LCALL	DELAY_5_SECONDS
 	MOTOR_TURN_CLOCKWISE
 	CLR	F0
-	RETI
+	RET
 COUNTERCLOCKWISE_DIRECTION:
 	MOTOR_TURN_COUNTERCLOCKWISE
 	SETB	F0
-	RETI
+	RET
 ;*******************************************************************************
 
 ;*******************************************************************************
@@ -182,6 +184,6 @@ COUNTERCLOCKWISE_DIRECTION:
 ISR_TIMER0:
 	INC	R0
 	LOAD_TIMER0_20HZ
-	RETI
+	RET
 ;*******************************************************************************
 	END
