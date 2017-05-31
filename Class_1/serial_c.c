@@ -41,33 +41,36 @@
 
 /*
 ******************************************************************************
-* @CONSTANT
-*  Code's constants
+* @DEFINITIONS
+*  Code's definitions
 *---------------------------------------------------------------------------*/
 #define TRUE	1
 #define FALSE	0
 #define STR	"UNIVERSITY OF SAO PAULO AT ENGINEERING SCHOOL OF SAO CARLOS$"
 
 /*
-;*******************************************************************************
-; @INTERRUPTION
-;  isr_serial
-;------------------------------------------------------------------------------
-; @Description
-;  Interruption service routine to check if a character received from uart is
-;  the ASCII code for the letter P. If true, sends through uart a message stored
-;  in the internal rom, otherwise, returns.
-;------------------------------------------------------------------------------
-; @Param
-;  Void
-;------------------------------------------------------------------------------
-; @Returns
-;  Void
-;----------------------------------------------------------------------------*/
+********************************************************************************
+* @INTERRUPTION
+*  isr_serial
+*------------------------------------------------------------------------------
+* @Description
+*  Interruption service routine to check if a character received from uart is
+*  the ASCII code for the letter P. If true, sends through uart a message stored
+*  in the internal rom, otherwise, returns.
+*------------------------------------------------------------------------------
+* @Param
+*  Void
+*------------------------------------------------------------------------------
+* @Returns
+*  Void
+*----------------------------------------------------------------------------*/
 void isr_serial(void) __interrupt(4);
 
 /*
 ******************************************************************************
+* @FUNCTION
+*  main
+*------------------------------------------------------------------------------
 * @Description
 *  Software entry point and endless main function.
 *-----------------------------------------------------------------------------
