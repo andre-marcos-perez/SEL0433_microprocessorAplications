@@ -74,7 +74,7 @@ void delay_ms(unsigned char delay);
 /*
 ******************************************************************************
 * @FUNCTION
-*  lcd_data
+*  lcd_wrt
 *------------------------------------------------------------------------------
 * @Description
 *  Sends a data to be written on the lcd.
