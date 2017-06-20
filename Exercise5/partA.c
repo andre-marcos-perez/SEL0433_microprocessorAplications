@@ -79,7 +79,7 @@ unsigned char savedBuffer[] = {10,'A',20,'B',30,'A',40,'B',50,'A'};
 *  Description: Performs a pre saved set of commands in the stepper motor.
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Character:   E
-*  Description: Clears the BUFFER.
+*  Description: Clears the buffer.
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Character:   F
 *  Description: Perfoms the command sequence stored on the buffer.
