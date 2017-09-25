@@ -1,0 +1,3 @@
+echo Generating .hex file...
+make
+pause
